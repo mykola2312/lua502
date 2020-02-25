@@ -1,0 +1,20 @@
+﻿Build started 28.06.2018 3:17:35.
+     1>Project "D:\lua502\lua\lua502_sdk\lua502_sdk.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\lua502_sdk.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\lua502\lua\Release\lua502_sdk.lib" lua502.lib /LIBPATH:D:\lua502\lua\Release /NOLOGO /LTCG Release\baselib.obj
+         Release\chook.obj
+         Release\plugin.obj
+         Release\sigscan.obj
+         lua502_sdk.vcxproj -> D:\lua502\lua\Release\lua502_sdk.lib
+       FinalizeBuildStatus:
+         Deleting file "Release\lua502_sdk.unsuccessfulbuild".
+         Touching "Release\lua502_sdk.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\lua502_sdk\lua502_sdk.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:00.17

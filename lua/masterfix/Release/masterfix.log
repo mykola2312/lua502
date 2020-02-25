@@ -1,0 +1,25 @@
+﻿Build started 27.05.2018 5:11:42.
+     1>Project "D:\lua502\lua\masterfix\masterfix.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\masterfix.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\source2006\public\dlls /ID:\source2006\dlls\hl2_dll /ID:\source2006\game_shared\hl2 /ID:\source2006\game_shared\hl2mp /ID:\source2006\game_shared /ID:\source2006\dlls /ID:\source2006\public\tier1 /ID:\source2006\public\tier0 /ID:\source2006\public /ID:\source2006\common /ID:\lua502\lua\lua502_sdk /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\winnt.h(1140): warning C4005: ARRAYSIZE: изменение макроопределения
+                 d:\source2006\public\tier0\commonmacros.h(35): см. предыдущее определение "ARRAYSIZE"
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\lua502\lua\Release\masterfix.dll" /NOLOGO /LIBPATH:D:\source2006\lib\public /LIBPATH:D:\lua502\lua\Release lua502_sdk.lib vstdlib.lib tier0.lib tier1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT.lib /MANIFEST /ManifestFile:"Release\masterfix.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\lua502\lua\Release\masterfix.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\lua502\lua\Release\masterfix.lib" /MACHINE:X86 /DLL Release\main.obj
+            Создается библиотека D:\lua502\lua\Release\masterfix.lib и объект D:\lua502\lua\Release\masterfix.exp
+         Создание кода
+         Создание кода завершено
+         masterfix.vcxproj -> D:\lua502\lua\Release\masterfix.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\lua502\lua\Release\masterfix.dll;#2" /manifest Release\masterfix.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\masterfix.unsuccessfulbuild".
+         Touching "Release\masterfix.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\masterfix\masterfix.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:01.63

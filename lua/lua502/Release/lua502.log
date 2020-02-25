@@ -1,0 +1,70 @@
+﻿Build started 23.07.2018 16:03:04.
+     1>Project "D:\lua502\lua\lua502\lua502.vcxproj" on node 2 (build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+     1>InitializeBuildStatus:
+         Touching "Release\lua502.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\source2006\utils\lzma\ /ID:\source2006\common\lzma /ID:\lua502\src /ID:\lua502\include /ID:\source2006\public\tier1 /ID:\source2006\public\tier0 /ID:\source2006\public /ID:\source2006\cl_dll /ID:\source2006\game_shared /ID:\source2006\common /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D LUA_DLL /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt console.cpp
+         console.cpp
+     1>C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\winnt.h(1140): warning C4005: ARRAYSIZE: изменение макроопределения
+                 d:\source2006\public\tier0\commonmacros.h(35): см. предыдущее определение "ARRAYSIZE"
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\GMod9Dev_Server\gmod9\addons\lua502.dll" /NOLOGO /LIBPATH:D:\source2006\lib\common /LIBPATH:D:\source2006\lib\public vstdlib.lib tier0.lib tier1.lib lzma.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT.lib /MANIFEST /ManifestFile:"Release\lua502.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\GMod9Dev_Server\gmod9\addons\lua502.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\GMod9Dev_Server\gmod9\addons\lua502.lib" /MACHINE:X86 /DLL Release\lapi.obj
+         Release\lcode.obj
+         Release\ldebug.obj
+         Release\ldo.obj
+         Release\ldump.obj
+         Release\lfunc.obj
+         Release\lgc.obj
+         Release\lauxlib.obj
+         Release\llex.obj
+         Release\lmem.obj
+         Release\lobject.obj
+         Release\lopcodes.obj
+         Release\lparser.obj
+         Release\lstate.obj
+         Release\lstring.obj
+         Release\ltable.obj
+         Release\ltests.obj
+         Release\ltm.obj
+         Release\lundump.obj
+         Release\lvm.obj
+         Release\lzio.obj
+         Release\bitlib.obj
+         Release\chook.obj
+         Release\console.obj
+         Release\cvarlib.obj
+         Release\keyvalues.obj
+         Release\luafile.obj
+         Release\baselib.obj
+         Release\luapointer.obj
+         Release\lzmalib.obj
+         Release\mainlib.obj
+         Release\plugin.obj
+         Release\sigscan.obj
+         Release\svar.obj
+         Release\types.obj /FORCE:MULTIPLE 
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: __malloc_crt уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _free уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+            Создается библиотека ..\..\..\GMod9Dev_Server\gmod9\addons\lua502.lib и объект ..\..\..\GMod9Dev_Server\gmod9\addons\lua502.exp
+     1>..\..\..\GMod9Dev_Server\gmod9\addons\lua502.dll : warning LNK4088: образ создается из-за параметра /FORCE; образ нельзя запустить
+         Создание кода
+         Создание кода завершено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: __malloc_crt уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _free уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>..\..\..\GMod9Dev_Server\gmod9\addons\lua502.dll : warning LNK4088: образ создается из-за параметра /FORCE; образ нельзя запустить
+         lua502.vcxproj -> D:\lua502\lua\lua502\..\..\..\GMod9Dev_Server\gmod9\addons\lua502.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\..\..\GMod9Dev_Server\gmod9\addons\lua502.dll;#2" /manifest Release\lua502.dll.intermediate.manifest
+       PostBuildEvent:
+         copy "..\..\..\GMod9Dev_Server\gmod9\addons\lua502.lib" "..\Release\lua502.lib"
+         :VCEnd
+         Скопировано файлов:         1.
+       FinalizeBuildStatus:
+         Deleting file "Release\lua502.unsuccessfulbuild".
+         Touching "Release\lua502.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\lua502\lua502.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:03.30

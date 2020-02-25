@@ -1,0 +1,236 @@
+#define INTERFACEVERSION_ISERVERPLUGINCALLBACKS "ISERVERPLUGINCALLBACKS003"
+typedef int edict_t;
+typedef int EQueryCvarValueStatus;
+typedef int QueryCvarCookie_t;
+typedef enum {
+	PLUGIN_CONTINUE,
+	PLUGIN_OVERRIDE,
+	PLUGIN_STOP,
+} PLUGIN_RESULT;
+
+class IServerPluginCallbacks
+{
+public:
+	virtual bool  Load( CreateInterfaceFn interfaceFactory, CreateInterfaceFn gameServerFactory  ) = 0;
+	virtual void  Unload( void ) = 0;
+	virtual void  Pause( void ) = 0;
+	virtual void  UnPause( void ) = 0;  
+	virtual const char* GetPluginDescription( void ) = 0;      
+	virtual void  LevelInit( const char* pMapName ) = 0;
+	virtual void  ServerActivate( edict_t *pEdictList, int edictCount, int clientMax ) = 0;
+	virtual void  GameFrame( bool simulating ) = 0;
+	virtual void  LevelShutdown( void ) = 0;
+	virtual void  ClientActive( edict_t *pEntity ) = 0;
+	virtual void  ClientDisconnect( edict_t *pEntity ) = 0;
+	virtual void  ClientPutInServer( edict_t *pEntity, char const *playername ) = 0;
+	virtual void  SetCommandClient( int index ) = 0;
+	virtual void  ClientSettingsChanged( edict_t *pEdict ) = 0;
+	virtual PLUGIN_RESULT ClientConnect( bool *bAllowConnect, edict_t *pEntity, const char *pszName, const char *pszAddress, char *reject, int maxrejectlen ) = 0;
+	virtual PLUGIN_RESULT ClientCommand( edict_t *pEntity, void* args ) = 0;
+	virtual PLUGIN_RESULT NetworkIDValidated( const char *pszUserName, const char *pszNetworkID ) = 0;
+	virtual void  OnQueryCvarValueFinished( QueryCvarCookie_t iCookie, edict_t *pPlayerEntity, EQueryCvarValueStatus eStatus, const char *pCvarName, const char *pCvarValue ) = 0;
+	virtual void  OnEdictAllocated( edict_t *edict ) = 0;
+	virtual void  OnEdictFreed( edict_t *edict  ) = 0; 
+};
+
+typedef int (*GM9EntryFn)(lua_State*);
+typedef struct luaplugin_s {
+	GM9EntryFn m_fnInit;
+	GM9EntryFn m_fnExit;
+	unsigned int m_iPluginAPI;
+	//Place holders
+	const char* m_pName;
+	CreateInterfaceFn m_fnAppFactory;
+	CreateInterfaceFn m_fnGameFactory;
+	HMODULE m_hModule;
+	luaplugin_s* m_pNext; //Linked list, useful
+} luaplugin_t;
+
+typedef luaplugin_t* (*GM9PluginInfoFn)(ILua502*);
+
+#define LUAPLUGIN_INFO_FN "gmod9_info"
+#define LUAPLUGIN_API 0x1B565D55
+
+typedef enum {
+	PLUGIN_OK,
+	PLUGIN_LLAFAIL,
+	PLUGIN_ABIMISM,
+	PLUGIN_DENIED,
+} plugerr_t;
+
+plugerr_t CLua502Plugin::LoadPlugin(const char* pName,const char* pGameID,luaplugin_t** ppPlugin,int* pRet)
+{
+	HMODULE hMod;
+	luaplugin_t* pPlugin,*pIter;
+	GM9PluginInfoFn InfoFn;
+	int iRet,iTop[2];
+	if((V_strlen(pName)+sizeof("lua/bin/%s"))>256) return PLUGIN_LLAFAIL;
+
+	char szPath[256] = {0};
+	sprintf(szPath,"lua/bin/%s",pName);
+
+	//if(!(hMod = LoadLibrary(pPath))) return PLUGIN_LLAFAIL;
+	if(!(hMod = (HMODULE)filesystem->LoadModule(szPath,pGameID,false))) return PLUGIN_LLAFAIL;
+
+	if(!(InfoFn = (GM9PluginInfoFn)GetProcAddress(hMod,LUAPLUGIN_INFO_FN)))
+	{
+		filesystem->UnloadModule((CSysModule*)hMod);
+		Print("gmod9_info not found!\n");
+		return PLUGIN_ABIMISM;
+	}
+	if(!(pPlugin = InfoFn(g_pLua502))){
+		filesystem->UnloadModule((CSysModule*)hMod);
+		Print("gmod9_info returned null\n");
+		return PLUGIN_ABIMISM;
+	}
+	if(pPlugin->m_iPluginAPI != LUAPLUGIN_API){
+		filesystem->UnloadModule((CSysModule*)hMod);
+		Print("Plugin API version mismatch!\n");
+		return PLUGIN_ABIMISM;
+	}
+	if(!pPlugin->m_fnInit || !pPlugin->m_fnExit){
+		filesystem->UnloadModule((CSysModule*)hMod);
+		Print("init & exit funcs not declared!\n");
+		return PLUGIN_ABIMISM;
+	}
+
+	pPlugin->m_hModule = hMod;
+	pPlugin->m_fnAppFactory = m_fnAppFactory;
+	pPlugin->m_fnGameFactory = m_fnGameFactory;
+
+	if(!pPlugin->m_pName)
+	{
+		char* pLocalName = (char*)strrchr(pName,'/');
+		if(!pLocalName) pLocalName = (char*)strrchr(pName,'\\');
+		
+		if(!pLocalName)
+		{
+			static int s_iUnnamed = 0;
+			char szName[64];
+			sprintf(szName,"unnamed_%03d",s_iUnnamed++);
+			pPlugin->m_pName = strdup(szName);
+			Print("Plugin %p doesn't have name!\n",pPlugin);
+		}
+		else pPlugin->m_pName = strdup((const char*)(pLocalName+1));
+	}
+	else pPlugin->m_pName = strdup(pPlugin->m_pName);
+
+	if((pIter=m_pFirstPlugin))
+	{
+		do {
+			if(!V_stricmp(pIter->m_pName,pPlugin->m_pName))
+			{
+				Print("Attempt to load same plugin!\n");
+				return PLUGIN_DENIED;
+			}
+		} while((pIter=pIter->m_pNext));
+	}
+
+	iTop[0] = lua_gettop(m_pLuaInterface->m_pL);
+	iRet = pPlugin->m_fnInit(m_pLuaInterface->m_pL);
+	iTop[1] = lua_gettop(m_pLuaInterface->m_pL);
+	lua_settop(m_pLuaInterface->m_pL,iTop[0]);
+	if(iTop[0] != iTop[1]) Print("Possible lua stack leak: %d %d\n",iTop[0],iTop[1]);
+
+	if(pRet) *pRet = iRet;
+
+	pPlugin->m_pNext = m_pFirstPlugin;
+	m_pFirstPlugin = pPlugin;
+	if(ppPlugin) *ppPlugin = pPlugin;
+	return PLUGIN_OK;
+}
+
+plugerr_t CLua502Plugin::UnloadPlugin(luaplugin_t* pPlugin,int* pRet)
+{
+	int iTop[2],iRet;
+	luaplugin_t* pIter;
+	//Check if name starts as [unna]med_XXX
+	//if(*(unsigned int*)pPlugin->m_pName != 0x616E6E75)
+	free((void*)pPlugin->m_pName);
+	if((pIter = m_pFirstPlugin))
+	{
+		if(m_pFirstPlugin==pPlugin)
+			m_pFirstPlugin = pPlugin->m_pNext;
+		else
+		{
+			do {
+				if(pIter->m_pNext == pPlugin)
+				{
+					pIter->m_pNext = pPlugin->m_pNext;
+					break;
+				}
+			} while((pIter=pIter->m_pNext));
+		}
+	}
+	
+	iTop[0] = lua_gettop(m_pLuaInterface->m_pL);
+	iRet = pPlugin->m_fnExit(m_pLuaInterface->m_pL);
+	iTop[1] = lua_gettop(m_pLuaInterface->m_pL);
+	lua_settop(m_pLuaInterface->m_pL,iTop[0]);
+	if(iTop[0] != iTop[1]) Print("Possible lua stack leak: %d %d\n",iTop[0],iTop[1]);
+
+	if(pRet) *pRet = iRet;
+
+	//FreeLibrary(pPlugin->m_hModule);
+	filesystem->UnloadModule((CSysModule*)(pPlugin->m_hModule));
+	return PLUGIN_OK;
+}
+
+if(!V_stricmp(pCmd,"list"))
+	{
+		luaplugin_t* pPlugin = g_pLua502->FirstPlugin();
+		Msg("== Lua 502 Plugins (version %X) ==\n",LUAPLUGIN_API);
+		if(!pPlugin)
+		{
+			Msg("No plugins loaded\n");
+			return;
+		}
+		do {
+			Msg("%p %x %s\n",pPlugin,pPlugin->m_hModule,pPlugin->m_pName?pPlugin->m_pName:"(null)");
+		} while((pPlugin=pPlugin->m_pNext));
+	}
+	else if(!V_stricmp(pCmd,"load"))
+	{
+		int iErr = 0,iRet = 0;
+		luaplugin_t* pPlugin = 0;
+		if(engine->Cmd_Argc() < 2) return;
+		const char* pPath = engine->Cmd_Argv(2);
+		if(!CLua502Plugin::IsPathSecure(pPath))
+		{
+			g_pLua502->Print("Path contains banned symbols.");
+			return;
+		}
+		if((iErr=g_pLua502->LoadPlugin(pPath,
+			lua502_luapath.GetString(),&pPlugin,&iRet)))
+			Warning("Error %d occured when loading lua plugin!\n",iErr);
+		else Msg("Plugin %s loaded with code %d\n",pPlugin->m_pName?pPlugin->m_pName:"unnamed",iRet);
+	}
+	else if(!V_stricmp(pCmd,"unload"))
+	{
+		int iRet = 0;
+		const char* pName;
+		if(engine->Cmd_Argc() < 2) return;
+		pName = engine->Cmd_Argv(2);
+
+		luaplugin_t* pSelect=NULL,*pPlugin = g_pLua502->FirstPlugin();
+		do {
+			if(!V_stricmp(pPlugin->m_pName,pName)){
+				pSelect = pPlugin;
+				break;
+			}
+		} while((pPlugin=pPlugin->m_pNext));
+		if(!pSelect) Msg("Plugin not found!\n");
+		else 
+		{
+			char* pModName = strdup(pPlugin->m_pName);
+			g_pLua502->UnloadPlugin(pPlugin,&iRet);
+			Msg("Plugin %s unloaded with code %d\n",pModName,iRet);
+			free(pModName);
+		}
+	}
+	else if(!V_stricmp(pCmd,"debug"))
+	{
+		luaplugin_t* pPlugin = g_pLua502->FirstPlugin();
+		Msg("m_pFirstPlugin %p m_pNext %p\n",pPlugin,
+			pPlugin?pPlugin->m_pNext:(luaplugin_t*)0xDEADBEEF);
+	}

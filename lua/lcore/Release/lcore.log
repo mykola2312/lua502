@@ -1,0 +1,44 @@
+﻿Build started 15.09.2017 0:36:14.
+     1>Project "D:\lua502\lua\lcore\lcore.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\lcore.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\lua502\include\ /ID:\lua502\src\ /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\src\lib\lauxlib.c
+         lauxlib.c
+     1>..\..\src\lib\lauxlib.c(480): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(157): см. объявление "strerror"
+     1>..\..\src\lib\lauxlib.c(497): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>..\..\src\lib\lauxlib.c(503): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\lua502\lua\Release\lcore.lib" /NOLOGO /LTCG Release\lapi.obj
+         Release\lcode.obj
+         Release\ldebug.obj
+         Release\ldo.obj
+         Release\ldump.obj
+         Release\lfunc.obj
+         Release\lgc.obj
+         Release\lauxlib.obj
+         Release\llex.obj
+         Release\lmem.obj
+         Release\lobject.obj
+         Release\lopcodes.obj
+         Release\lparser.obj
+         Release\lstate.obj
+         Release\lstring.obj
+         Release\ltable.obj
+         Release\ltests.obj
+         Release\ltm.obj
+         Release\lundump.obj
+         Release\lvm.obj
+         Release\lzio.obj
+         lcore.vcxproj -> D:\lua502\lua\Release\lcore.lib
+       FinalizeBuildStatus:
+         Deleting file "Release\lcore.unsuccessfulbuild".
+         Touching "Release\lcore.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\lcore\lcore.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:01.08

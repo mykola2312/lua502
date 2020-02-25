@@ -1,0 +1,32 @@
+﻿Build started 29.06.2018 16:13:31.
+     1>Project "D:\lua502\lua\rw1132\rw1132.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\rw1132.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\lua502\lua\Release\rw1132.dll" /NOLOGO /LIBPATH:D:\source2006\lib\public tier0.lib tier1.lib vstdlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT.lib /MANIFEST:NO /DEBUG /PDB:"D:\lua502\lua\Release\rw1132.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /BASE:"0x13370000" /DYNAMICBASE:NO /NXCOMPAT:NO /IMPLIB:"D:\lua502\lua\Release\rw1132.lib" /MACHINE:X86 /DLL Release\chook.obj
+         Release\main.obj
+         Release\vhook.obj /FORCE:MULTIPLE 
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _free уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _malloc уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _realloc уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: __malloc_crt уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+            Создается библиотека D:\lua502\lua\Release\rw1132.lib и объект D:\lua502\lua\Release\rw1132.exp
+     1>D:\lua502\lua\Release\rw1132.dll : warning LNK4088: образ создается из-за параметра /FORCE; образ нельзя запустить
+         Создание кода
+         Создание кода завершено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _free уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _malloc уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _realloc уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: __malloc_crt уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>D:\lua502\lua\Release\rw1132.dll : warning LNK4088: образ создается из-за параметра /FORCE; образ нельзя запустить
+         rw1132.vcxproj -> D:\lua502\lua\Release\rw1132.dll
+       FinalizeBuildStatus:
+         Deleting file "Release\rw1132.unsuccessfulbuild".
+         Touching "Release\rw1132.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\rw1132\rw1132.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:00.77

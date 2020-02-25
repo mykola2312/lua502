@@ -1,0 +1,24 @@
+﻿Build started 05.10.2017 1:14:38.
+     1>Project "D:\lua502\lua\502_test\502_test.vcxproj" on node 2 (build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+     1>InitializeBuildStatus:
+         Touching "Release\502_test.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\source2006\public /ID:\lua502\lua\lua502_sdk /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\GMod9_Server\gmod9\lua\bin\502_test.dll" /NOLOGO /LIBPATH:..\Release lua502_sdk.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\502_test.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\GMod9_Server\gmod9\lua\bin\502_test.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\GMod9_Server\gmod9\lua\bin\502_test.lib" /MACHINE:X86 /DLL Release\main.obj
+            Создается библиотека ..\..\..\GMod9_Server\gmod9\lua\bin\502_test.lib и объект ..\..\..\GMod9_Server\gmod9\lua\bin\502_test.exp
+         Создание кода
+         Создание кода завершено
+         502_test.vcxproj -> D:\lua502\lua\502_test\..\..\..\GMod9_Server\gmod9\lua\bin\502_test.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\..\..\GMod9_Server\gmod9\lua\bin\502_test.dll;#2" /manifest Release\502_test.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\502_test.unsuccessfulbuild".
+         Touching "Release\502_test.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\502_test\502_test.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:02.32

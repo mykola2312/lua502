@@ -1,0 +1,32 @@
+﻿Build started 29.06.2018 0:54:17.
+     1>Project "D:\lua502\lua\sdk_fixes\sdk_fixes.vcxproj" on node 2 (build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+     1>InitializeBuildStatus:
+         Creating "Release\sdk_fixes.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\source2006\public\tier1 /ID:\source2006\public\tier0 /ID:\source2006\game_shared /ID:\source2006\common /ID:\source2006\dlls /ID:\source2006\public /ID:\lua502\lua\lua502_sdk /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\winnt.h(1140): warning C4005: ARRAYSIZE: изменение макроопределения
+                 d:\source2006\public\tier0\commonmacros.h(35): см. предыдущее определение "ARRAYSIZE"
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.dll" /NOLOGO /LIBPATH:D:\source2006\lib\public /LIBPATH:D:\lua502\lua\Release lua502_sdk.lib vstdlib.lib tier0.lib tier1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT.lib /MANIFEST /ManifestFile:"Release\sdk_fixes.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.lib" /MACHINE:X86 /DLL Release\main.obj /FORCE:MULTIPLE 
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: __malloc_crt уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _free уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+            Создается библиотека ..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.lib и объект ..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.exp
+     1>..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.dll : warning LNK4088: образ создается из-за параметра /FORCE; образ нельзя запустить
+         Создание кода
+         Создание кода завершено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: __malloc_crt уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>MSVCRT.lib(MSVCR100.dll) : warning LNK4006: _free уже определен в tier1.lib(memoverride.obj); второе определение пропущено
+     1>..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.dll : warning LNK4088: образ создается из-за параметра /FORCE; образ нельзя запустить
+         sdk_fixes.vcxproj -> D:\lua502\lua\sdk_fixes\..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\..\..\GMod9Dev_Server\gmod9\lua\bin\sdk_fixes.dll;#2" /manifest Release\sdk_fixes.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\sdk_fixes.unsuccessfulbuild".
+         Touching "Release\sdk_fixes.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\sdk_fixes\sdk_fixes.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:02.30

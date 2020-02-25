@@ -1,0 +1,23 @@
+﻿Build started 27.10.2017 17:32:40.
+     1>Project "D:\lua502\lua\502_plugin\502_plugin.vcxproj" on node 2 (build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+     1>InitializeBuildStatus:
+         Touching "Release\502_plugin.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\GMod9_Server\gmod9\lua\bin\502_plugin.dll" /NOLOGO /LIBPATH:D:\lua502\lua\Release /LIBPATH:D:\source2006\lib\public tier0.lib tier1.lib lua502_sdk.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT.lib /MANIFEST /ManifestFile:"Release\502_plugin.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\GMod9_Server\gmod9\lua\bin\502_plugin.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\GMod9_Server\gmod9\lua\bin\502_plugin.lib" /MACHINE:X86 /DLL Release\main.obj
+            Создается библиотека ..\..\..\GMod9_Server\gmod9\lua\bin\502_plugin.lib и объект ..\..\..\GMod9_Server\gmod9\lua\bin\502_plugin.exp
+         Создание кода
+         Создание кода завершено
+         502_plugin.vcxproj -> D:\lua502\lua\502_plugin\..\..\..\GMod9_Server\gmod9\lua\bin\502_plugin.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\..\..\GMod9_Server\gmod9\lua\bin\502_plugin.dll;#2" /manifest Release\502_plugin.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\502_plugin.unsuccessfulbuild".
+         Touching "Release\502_plugin.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\502_plugin\502_plugin.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:01.61

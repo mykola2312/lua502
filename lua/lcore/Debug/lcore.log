@@ -1,0 +1,79 @@
+﻿Build started 15.09.2017 0:11:08.
+     1>Project "D:\lua502\lua\lcore\lcore.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\lua502\lua\Debug\".
+       InitializeBuildStatus:
+         Creating "Debug\lcore.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\lua502\include\ /ID:\lua502\src\ /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\src\lapi.c ..\..\src\lcode.c ..\..\src\ldebug.c ..\..\src\ldo.c ..\..\src\ldump.c ..\..\src\lfunc.c ..\..\src\lgc.c ..\..\src\llex.c ..\..\src\lmem.c ..\..\src\lobject.c ..\..\src\lopcodes.c ..\..\src\lparser.c ..\..\src\lstate.c ..\..\src\lstring.c ..\..\src\ltable.c ..\..\src\ltests.c ..\..\src\ltm.c ..\..\src\lundump.c ..\..\src\lvm.c ..\..\src\lzio.c
+         lzio.c
+         lvm.c
+     1>d:\lua502\src\lvm.c(60): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371): см. объявление "sprintf"
+         lundump.c
+         ltm.c
+         ltests.c
+         ltable.c
+         lstring.c
+         lstate.c
+         lparser.c
+         lopcodes.c
+         lobject.c
+     1>d:\lua502\src\lobject.c(165): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(188): см. объявление "strncpy"
+     1>d:\lua502\src\lobject.c(174): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
+     1>d:\lua502\src\lobject.c(177): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110): см. объявление "strcat"
+     1>d:\lua502\src\lobject.c(179): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110): см. объявление "strcat"
+     1>d:\lua502\src\lobject.c(185): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
+     1>d:\lua502\src\lobject.c(187): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(175): см. объявление "strncat"
+     1>d:\lua502\src\lobject.c(188): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110): см. объявление "strcat"
+     1>d:\lua502\src\lobject.c(191): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110): см. объявление "strcat"
+     1>d:\lua502\src\lobject.c(192): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110): см. объявление "strcat"
+         lmem.c
+         llex.c
+         lgc.c
+         lfunc.c
+         ldump.c
+         ldo.c
+         ldebug.c
+         lcode.c
+         lapi.c
+         Создание кода...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\lua502\lua\Debug\lcore.lib" /NOLOGO Debug\lapi.obj
+         Debug\lcode.obj
+         Debug\ldebug.obj
+         Debug\ldo.obj
+         Debug\ldump.obj
+         Debug\lfunc.obj
+         Debug\lgc.obj
+         Debug\llex.obj
+         Debug\lmem.obj
+         Debug\lobject.obj
+         Debug\lopcodes.obj
+         Debug\lparser.obj
+         Debug\lstate.obj
+         Debug\lstring.obj
+         Debug\ltable.obj
+         Debug\ltests.obj
+         Debug\ltm.obj
+         Debug\lundump.obj
+         Debug\lvm.obj
+         Debug\lzio.obj
+         lcore.vcxproj -> D:\lua502\lua\Debug\lcore.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\lcore.unsuccessfulbuild".
+         Touching "Debug\lcore.lastbuildstate".
+     1>Done Building Project "D:\lua502\lua\lcore\lcore.vcxproj" (build target(s)).
+
+Построение успешно завершено.
+
+Time Elapsed 00:00:05.23
